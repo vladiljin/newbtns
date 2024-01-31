@@ -25,8 +25,10 @@ class CustomSiteButton(Button):
 
     def __init__(self, **kwargs):
         super(CustomSiteButton, self).__init__(**kwargs)
-        self.size_hint = (1, None)
+        self.size_hint = (0.9, None)
         self.height = dp(38)
+        self.pos_hint = {'center_x': 0.5}
+        self.background_size = (self.width, self.height)  # Set background_size to stretch
 
 class CustomExitButton(Button):
     background_normal = StringProperty('data/exit1.png')
@@ -54,11 +56,11 @@ class MyApp(App):
         btn_layout = BoxLayout()
 
         # Adjust button height here
-        btn_yes = Button(text='Yes', size_hint=(1, 0.5))
+        btn_yes = Button(text='Yes', size_hint=(1, 0.7))
         btn_yes.bind(on_press=self.exit_app)  # Bind the "Yes" button to exit_app method
 
         # Adjust button height here
-        btn_no = Button(text='No', size_hint=(1, 0.5))
+        btn_no = Button(text='No', size_hint=(1, 0.7))
         btn_no.bind(on_press=self.dismiss_popup)
 
         btn_layout.add_widget(btn_yes)
